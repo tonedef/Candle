@@ -100,12 +100,12 @@ frmSettings::frmSettings(QWidget *parent) :
     controllerLayout->addRow(tr("Controller:"), deviceLayout);
     auto mapping = new QLabel(controllerSettings);
     mapping->setAlignment(Qt::AlignCenter);
-    QPixmap mappingPixmap(920, 430);
+    QPixmap mappingPixmap(920, 629);
     mappingPixmap.fill(Qt::transparent);
     QPainter mappingPainter(&mappingPixmap);
     QSvgRenderer mappingRenderer(QStringLiteral(":/images/controller_mapping.svg"));
     if (mappingRenderer.isValid()) mappingRenderer.render(&mappingPainter);
-    mapping->setPixmap(mappingPixmap.scaledToWidth(760, Qt::SmoothTransformation));
+    mapping->setPixmap(mappingPixmap.scaled(532, 364, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     mapping->setMinimumHeight(300);
     mapping->setToolTip(tr("Controller controls: sticks jog continuously; D-pad jogs one step; face buttons adjust Jog step and feed."));
     controllerLayout->addRow(mapping);
